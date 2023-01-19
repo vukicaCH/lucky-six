@@ -1,13 +1,483 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Inria Sans', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: rgb(5, 5, 58);
+}
+
+.background-image-lucky-six {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.main-section {
+  width: 800px;
+  background-color: rgba(61, 120, 174, 0.9);
+  margin: auto;
+  position: relative;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.badge{
+  cursor: pointer;
+}
+
+.drawn-number-and-announcer {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-number,
+.announcer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawn-ball {
+  height: 220px;
+  width: 220px;
+  border-radius: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5.5rem;
+  color: rgba(255, 255, 255, 0.943);
+}
+
+.timer {
+  height: 150px;
+  width: 150px;
+  border: 2px solid rgba(255, 255, 255, 0.943);
+  border-radius: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.943);
+}
+
+.timer-seconds {
+  font-size: 2rem;
+}
+
+.picked-numbers {
+  border: 1px solid rgba(255, 255, 255, 0.943);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.picked-number {
+  border-radius: 100px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.943);
+  margin: 0 5px;
+  cursor:pointer;
+  transition: .2s;
+  font-size: 25px;
+}
+
+.picked-number:hover{
+  opacity: 0.3;
+}
+
+.available-numbers {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.available-number {
+  height:50px;
+  width:50px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(243, 230, 230);
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 25px;
+}
+
+.available-number:hover{
+  scale: 1.1;
+}
+
+.empty{
+  height: 350px;
+  width: 480px;
+  background-color: rgba(0, 0, 0, .5);
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.drawn-numbers {
+  display: grid;
+  grid-template-columns: repeat(7, 60px);
+  grid-template-rows: repeat(5, 60px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  height: 350px;
+}
+
+.drawn-number {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position:relative;
+  font-size: 25px;
+}
+
+.drawn-number-square{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  background-color: rgba(0, 0, 0, .2);
+  text-align: center;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
+
+.green {
+  background-color: rgb(34, 247, 34);
+  color: black;
+}
+
+.blue {
+  background-color: rgb(27, 187, 245);
+  color: white;
+}
+
+.purple {
+  background-color: rgb(213, 54, 213);
+  color: white;
+}
+
+.brown {
+  background-color: rgb(160, 63, 15);
+  color: white;
+}
+
+.yellow {
+  background-color: rgb(244, 244, 5);
+  color: black;
+}
+
+.orange {
+  background-color: rgb(255, 89, 0);
+  color: white;
+}
+
+.black {
+  background-color: black;
+  color: white;
+}
+
+.ticket-form {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticket-form input {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  width: 200px;
+  background-color: rgba(61, 174, 80, 0.9);
+  color: rgba(255, 255, 255, 0.943);
+}
+
+.ticket-form input::placeholder {
+  color: rgba(255, 255, 255, 0.454);
+  text-transform: uppercase;
+}
+
+.ticket-form input:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ticket-form button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 5px;
+  width: 100px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: rgb(5, 5, 58);
+  color: rgba(255, 255, 255, 0.943);
+  transition: .2s;
+  cursor: pointer;
+}
+
+.ticket-form button:hover{
+  background-color: rgb(15, 15, 110);
+}
+
+.ticket-evidence{
+  width: 600px;
+  height: 800px;
+  background-color: rgb(233, 232, 232);
+  position: absolute;
+  top: 5%;
+  left: 12%;
+  z-index: 1;
+  border-radius: 20px;
+  padding: 50px 0;
+  overflow-y: scroll;
+}
+
+.close-icon{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.ticket-instance{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 10px auto;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.ticket-instance > *{
+  margin: 5px 0;
+}
+
+.won{
+  color: green;
+}
+
+.lost{
+  color: red;
+}
+
+.ticket-h1{
+  text-align: center;
+}
+
+.pick-numbers-h1{
+  color: white;
+}
+
+.popup{
+  position: fixed;
+  z-index: 10;
+  top: 10px;
+  left: 42.5%;
+  width: 15% ;
+}
+
+@media screen and (max-width: 768px) {
+  .main-section {
+      width: 100%;
+      height: 100%;
+  }
+
+  .picked-number {
+      font-size: 20px;
+      height: 60px;
+      width: 60px;
+  }
+
+
+  .drawn-number {
+      height: 90px;
+      display: flex;
+      align-items: flex-start;
+  }
+
+  .ticket-evidence{
+    width:100%;
+    height: 100%;
+    top:0;
+    left:0;
+    border-radius: 0;
+  }
+
+  .popup{
+    position: fixed;
+    z-index: 10;
+    top: 10px;
+    left: 25%;
+    width: 50% ;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+
+  .main-section {
+      width: 100%;
+  }
+
+  .navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+
+  .drawn-ball {
+      height: 150px;
+      width: 150px;
+      font-size: 4rem;
+  }
+
+  .timer {
+      height: 120px;
+      width: 120px;
+  }
+
+  .timer-seconds {
+      font-size: 1.3rem;
+  }
+
+  .picked-numbers {
+      margin: auto;
+      width: 90%;
+      justify-content: center;
+  }
+
+  .picked-number {
+      height: 40px;
+      width: 40px;
+      margin: 0 5px;
+  }
+
+  .available-numbers {
+      grid-template-columns: repeat(8, 40px);
+      grid-gap: 5px;
+  }
+
+  .available-number{
+    height: 40px;
+    width: 40px;
+  }
+
+  .drawn-numbers {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(7, 50px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    height: 400px;
+  }
+
+  .empty{
+    height: 400px;
+    width: 360px;
+    padding: 20px;
+    text-align: center;
+  }
+
+
+  .drawn-number {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+  }
+
+  .drawn-number-square{
+      font-size: 12px;
+  }
+
+  .drawn-number-background{
+      font-size: 30px;
+  }
+
+  .ticket-badge-div{
+    position:absolute;
+    top:10px;
+    right:10px;
+  }
+  
+  .ticket-badge-div .badge{
+    color:white;
+    cursor: pointer;
+  }
+  
+  .round{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+  }
+
+  .popup{
+    position: fixed;
+    z-index: 10;
+    top: 10px;
+    left: 10%;
+    width: 80% ;
+    font-size: 15px !important;
+  }
 }
