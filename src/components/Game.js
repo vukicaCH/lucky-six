@@ -82,7 +82,8 @@ const Game = () => {
 
         if (drawnNumbers.length === 35) {
             const checkedTickets = checkTickets(round, drawnNumbers, tickets);
-            const amountWon = amountToBePaid(checkedTickets);
+            const ticketsFromThisRound = checkedTickets.filter(ticket => ticket.round === round);
+            const amountWon = amountToBePaid(ticketsFromThisRound);
             dispatch({ type: "SET_TICKETS", payload: checkedTickets })
             dispatch({ type: "SET_BALANCE", payload: amountWon})
             if(amountWon){
