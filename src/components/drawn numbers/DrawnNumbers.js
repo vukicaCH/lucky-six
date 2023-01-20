@@ -1,6 +1,5 @@
 import React from 'react';
 import DrawnNumber from './DrawnNumber';
-import Timer from '../timer/Timer';
 import { useGameContext } from '../../context/GameContext';
 
 

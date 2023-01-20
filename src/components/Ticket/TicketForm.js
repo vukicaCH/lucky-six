@@ -9,7 +9,7 @@ const TicketForm = () => {
     const { pickedNumbers, round, roundStarted, balance } = useGameContext();
     const dispatch = useGameDispatch();
 
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState("");
 
     const handleChange = (e) => {
         setAmount(e.target.value);
@@ -42,7 +42,7 @@ const TicketForm = () => {
         
         dispatch({ type: "ADD_TICKET", payload: {ticket: newTicket, amount: amount} })
         setPopup("Ticket is created successfully", "success");
-        setAmount(0);
+        setAmount("");
     }
 
     return (

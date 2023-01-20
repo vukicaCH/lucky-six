@@ -9,7 +9,7 @@ const Timer = () => {
     return (
         roundStarted ?
         "":
-        <div class="announcer">
+        <div className="announcer">
             <div class="timer">
                 <span class="timer-text">Round in</span>
                 <span class="timer-seconds">
