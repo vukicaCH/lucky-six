@@ -1,7 +1,7 @@
 {
   "name": "lucky-six",
   "version": "0.1.0",
-  "homepage": "https://vukicaCH.github.io/LUCKY-SIX-REACTJS",
+  "homepage": "https://vukicaCH.github.io/lucky-six",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
