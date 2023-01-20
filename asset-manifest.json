@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/lucky-six/static/css/main.2f9dd0b0.css",
+    "main.js": "/lucky-six/static/js/main.890a2a89.js",
+    "static/js/787.435d45c1.chunk.js": "/lucky-six/static/js/787.435d45c1.chunk.js",
+    "index.html": "/lucky-six/index.html",
+    "main.2f9dd0b0.css.map": "/lucky-six/static/css/main.2f9dd0b0.css.map",
+    "main.890a2a89.js.map": "/lucky-six/static/js/main.890a2a89.js.map",
+    "787.435d45c1.chunk.js.map": "/lucky-six/static/js/787.435d45c1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f9dd0b0.css",
+    "static/js/main.890a2a89.js"
+  ]
+}
